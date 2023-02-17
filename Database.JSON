@@ -1,1 +1,21 @@
-{}
+{
+    "Users": [
+      {"id": 1, "username": "test", "role": "teacher"},
+      {"id": 2, "username": "test", "role": "student"}
+    ],
+    "Courses": [
+      {
+        "id": 1,
+        "name": "test",
+        "subject": "teacher",
+        "students": []
+      },
+      {
+        "id": 2,
+        "name": "test",
+        "subject": "teacher",
+        "students": []
+      }
+    ]
+  }
+  
