@@ -1,9 +1,9 @@
 # **SDEV 255 Final Project**
 ## **Group 8**
 ## **Authors:**
-### **  Anthony Aldrich**
-### **  Jackson Crantford**
-### **  Marshall Newton**
+### Anthony Aldrich
+### Jackson Crantford
+### Marshall Newton
 
 
 ## **Version**
