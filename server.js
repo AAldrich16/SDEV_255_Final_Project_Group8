@@ -1,10 +1,9 @@
 const express = require('express');
-const app = express();
+const router = require('./router');
 
-app.get('/', (req, res) => {
-  res.write('<h1>Group 8 Final Project</h1>');
-  res.end();
-})
+const app = express();
+app.use(express.static('pages')); // middleware to serve static files from /pages directory
+app.use(router);  // all routes are sent through ./router.js
 
 const port = 3000;
 app.listen(3000, () => {
