@@ -17,7 +17,7 @@
   
 ## **App Setup**
   
-  **Clone APOD-APP**
+  **Clone Project**
   ```
   git clone https://github.com/AAldrich16/SDEV_255_Final_Project_Group8
   ```
