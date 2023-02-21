@@ -7,7 +7,8 @@ const fs = require('fs');
 module.exports = async function addNewCourse (newCourse) {
   if (typeof newCourse !== 'object') {
     console.log('newCourse is not of type "object"');
-    return;
+    // TODO: Error handling
+    // throw new Error(`addNewCourse received argument of type ${typeof newCourse}: expected object`);
   }
   await fs.readFile('./models/Courses.JSON', (err, data) => {
     if (err) {
