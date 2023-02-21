@@ -26,34 +26,18 @@
         </div>
         <div class="content">
             <div id="course_container">
-
+                <div class="course">
+                    <span class="img">
+                        <span style="background: rgba(255, 42, 4,0.4);">
+                        </span>
+                        <img src="https://www.cmuse.org/wp-content/uploads/2020/06/learn-calculus-lessons-online.jpg" alt="courseimg"/>
+                    </span>W
+                    <span class="info">
+                        <span style="color: rgba(255, 42, 4, 1); font-weight: 800;"><a href="./course/123">Class name</a></span><BR>
+                        <span style="color: #8d8d8d;">Intro to class</span>
+                    </span>
+                </div>
             </div>
         </div>
-        <script>
-            // Load courses from JSON file
-            fetch('./getCourses')
-                .then(response => response.json())
-                .then(courses => {
-                    console.log(courses);
-                    // Iterate over courses and create course cards
-                    courses.Courses.forEach(course => {
-                        const courseDiv = document.createElement('div');
-                        courseDiv.classList.add('course');
-                        courseDiv.innerHTML = `
-                                                <span class="img">
-                                                    <span style="background: rgba(${course.color},0.4);">
-                                                    </span>
-                                                    <img src="${course.image}" alt="courseimg"/>
-                                                </span>
-                                                <span class="info">
-                                                    <span style="color: rgba(${course.color}, 1); font-weight: 800;"><a href="./course/${course.id}">${course.name}</a></span><BR>
-                                                    <span style="color: #8d8d8d;">${course.description}</span>
-                                                </span>
-                                            `;
-                        document.getElementById('course_container').appendChild(courseDiv);
-                    });
-                })
-                .catch(error => console.error('Error loading courses', error));
-        </script>
     </body>
 </html>
