@@ -14,13 +14,13 @@
                     </div>
                 </div>
                 <div class="nav-item active">
-                    <i class="fa-solid fa-house"></i>
+                    <a href="#"><i class="fa-solid fa-house"></i></a>
                 </div>
                 <div class="nav-item">
-                    <i class="fa-solid fa-book"></i>
+                    <a href="/courses"><i class="fa-solid fa-book"></i></a>
                 </div>
                 <div class="nav-item">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <a href="/add"><i class="fa-solid fa-magnifying-glass"></i></a>
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@
                                                     <img src="${course.image}" alt="courseimg"/>
                                                 </span>
                                                 <span class="info">
-                                                    <span style="color: rgba(${course.color}, 1); font-weight: 800;">${course.name}</span><BR>
+                                                    <span style="color: rgba(${course.color}, 1); font-weight: 800;"><a href="./course/${course.id}">${course.name}</a></span><BR>
                                                     <span style="color: #8d8d8d;">${course.description}</span>
                                                 </span>
                                             `;

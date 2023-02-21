@@ -72,8 +72,13 @@ body{
         }
         .navigation .nav-items .active{
             background: #eee;
-            color: #333;
         }
+            .nav-item a {
+                color: #fff;
+            }
+            .nav-items .active > a{
+                color: #333;
+            }
 .content{
     display: flex;
     flex-direction: column;
