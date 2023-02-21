@@ -1,10 +1,59 @@
-<html>
+
+<html lang="en">
     <head>
         <title>Home</title>
         <link href="style.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
-        <h1>Home</h1>
+        <div class="navigation">
+            <div class="nav-items">
+                <div class="nav-item">
+                    <div class="user">
+                        <img src="" alt="userimg"/>
+                    </div>
+                </div>
+                <div class="nav-item active">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+                <div class="nav-item">
+                    <i class="fa-solid fa-book"></i>
+                </div>
+                <div class="nav-item">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div id="course_container">
 
+            </div>
+        </div>
+        <script>
+            // Load courses from JSON file
+            fetch('./getCourses')
+                .then(response => response.json())
+                .then(courses => {
+                    console.log(courses);
+                    // Iterate over courses and create course cards
+                    courses.Courses.forEach(course => {
+                        const courseDiv = document.createElement('div');
+                        courseDiv.classList.add('course');
+                        courseDiv.innerHTML = `
+                                                <span class="img">
+                                                    <span style="background: rgba(${course.color},0.4);">
+                                                    </span>
+                                                    <img src="${course.image}" alt="courseimg"/>
+                                                </span>
+                                                <span class="info">
+                                                    <span style="color: rgba(${course.color}, 1); font-weight: 800;">${course.name}</span><BR>
+                                                    <span style="color: #8d8d8d;">${course.description}</span>
+                                                </span>
+                                            `;
+                        document.getElementById('course_container').appendChild(courseDiv);
+                    });
+                })
+                .catch(error => console.error('Error loading courses', error));
+        </script>
     </body>
 </html>
