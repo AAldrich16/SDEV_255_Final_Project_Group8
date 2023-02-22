@@ -17,7 +17,7 @@
             "subject": "Math",
             "description": "Introduction to Trigonometry",
             "image": "https://study.com/cimages/course-image/trigonometry-curriculum-resource-lesson-plans_139542_large.jpg",
-            "color":  "32, 232, 4",
+            "color":  "22, 160, 133",
             "credits": 3,
             "teacher": 1,
             "students": [2]

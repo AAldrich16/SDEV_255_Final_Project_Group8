@@ -1,10 +1,84 @@
-<html>
-    <head>
-        <title>Schedule Builder</title>
-        <link href="style.css" rel="stylesheet"/>
-    </head>
-    <body>
-        <h1>Register for courses</h1>
 
-    </body>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <link href="style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<div class="navigation">
+    <div class="nav-items">
+        <div class="nav-item">
+            <div class="user">
+                <img src="" alt="userimg"/>
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="/"><i class="fa-solid fa-house"></i></a>
+        </div>
+        <div class="nav-item">
+            <a href="/courses"><i class="fa-solid fa-book"></i></a>
+        </div>
+        <div class="nav-item active">
+            <a href="/add"><i class="fa-solid fa-magnifying-glass"></i></a>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="page_header">
+        <h3><i class="fa-solid fa-clipboard-check"></i> Course Registration</h3>
+    </div>
+    <div class="search_section">
+        <div class="search_input">
+            <input type="text" placeholder="Course Name"/>
+            <input type="text" placeholder="Course Number"/>
+            <select id="cars" name="cars">
+                <option value="" disabled selected>Semester</option>
+                <option value="Summer">Summer</option>
+                <option value="Fall">Fall</option>
+                <option value="Spring">Spring</option>
+            </select>
+            <input type="submit" value="Search"/>
+        </div>
+    </div>
+    <div class="courses_section">
+        <table>
+            <tr>
+                <th>
+                    Subject/Sections
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Credits
+                </th>
+                <th>
+                    Instructor
+                </th>
+                <th>
+                    Note
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    MATH
+                </td>
+                <td>
+                    Introductory to Calculus
+                </td>
+                <td>
+                    3
+                </td>
+                <td>
+                    Smith, Bob
+                </td>
+                <td>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
 </html>

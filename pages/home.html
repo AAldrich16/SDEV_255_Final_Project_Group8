@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
+
         <div class="navigation">
             <div class="nav-items">
                 <div class="nav-item">
@@ -25,19 +26,41 @@
             </div>
         </div>
         <div class="content">
+            <div class="page_header">
+                <h3><i class="fa-solid fa-home"></i> Course Registration</h3>
+            </div>
             <div id="course_container">
-                <div class="course">
-                    <span class="img">
-                        <span style="background: rgba(255, 42, 4,0.4);">
-                        </span>
-                        <img src="https://www.cmuse.org/wp-content/uploads/2020/06/learn-calculus-lessons-online.jpg" alt="courseimg"/>
-                    </span>W
-                    <span class="info">
-                        <span style="color: rgba(255, 42, 4, 1); font-weight: 800;"><a href="./course/123">Class name</a></span><BR>
-                        <span style="color: #8d8d8d;">Intro to class</span>
-                    </span>
-                </div>
+
+            </div>
+            <div class="assignments_container">
+
             </div>
         </div>
+        <script>
+            // Load courses from JSON file
+            fetch('./getCourses')
+                .then(response => response.json())
+                .then(courses => {
+                    console.log(courses);
+                    // Iterate over courses and create course cards
+                    courses.Courses.forEach(course => {
+                        const courseDiv = document.createElement('div');
+                        courseDiv.classList.add('course');
+                        courseDiv.innerHTML = `
+                                                <span class="img">
+                                                    <span style="background: rgba(${course.color},0.4);">
+                                                    </span>
+                                                    <img src="${course.image}" alt="courseimg"/>
+                                                </span>
+                                                <span class="info">
+                                                    <span><a href="./course/${course.id}" style="color: rgba(${course.color}, 1); font-weight: 800;">${course.name}</a></span><BR>
+                                                    <span style="color: #8d8d8d;">${course.description}</span>
+                                                </span>
+                                            `;
+                        document.getElementById('course_container').appendChild(courseDiv);
+                    });
+                })
+                .catch(error => console.error('Error loading courses', error));
+        </script>
     </body>
 </html>
