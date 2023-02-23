@@ -1,21 +1,26 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
-const mime = require('mime');
+const getAllCourses = require('./controllers/getAllCourses');
+const fs = require ('fs');
+
+
 
 /*
   GET REQUESTS
 */
-// Get Course Information [USING THIS JUST TO IMPLEMENT INTO HTML, CAN BE REMOVED FOR CONTROLLER]
-router.get('/getCourses', (req, res) => {
-  const filePath = path.join(__dirname, 'models', 'Courses.JSON');
-  res.setHeader('Content-Type', mime.getType(filePath));
-  res.sendFile(filePath);
-});
 // Home
 router.get('/', (req, res) => {
   res.sendFile(`${__dirname}/pages/home.html`);
 });
+router.get('/getAllCourses', (req, res) => {
+  getAllCourses()
+  .then( data => {
+    data = JSON.parse(data);
+    console.log(data);
+    res.send(data);
+  });
+});
+
 // Add
 router.get('/add', (req, res) => {
   res.sendFile(`${__dirname}/pages/add.html`);
