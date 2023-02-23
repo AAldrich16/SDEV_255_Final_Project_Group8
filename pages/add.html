@@ -42,8 +42,9 @@
         </div>
     </div>
     <div class="courses_section">
-        <table>
+        <table id="course_list">
             <tr>
+                <th></th>
                 <th>
                     Subject/Sections
                 </th>
@@ -60,25 +61,45 @@
                     Note
                 </th>
             </tr>
-            <tr>
-                <td>
-                    MATH
-                </td>
-                <td>
-                    Introductory to Calculus
-                </td>
-                <td>
-                    3
-                </td>
-                <td>
-                    Smith, Bob
-                </td>
-                <td>
-
-                </td>
-            </tr>
         </table>
     </div>
 </div>
+<script>
+    // Load courses from JSON file
+    window.addEventListener('load', () => {
+              // Load courses from JSON file
+              const courses = fetch('/getAllCourses');
+                  courses.then(response => response.json())
+                  .then(courses => {
+                      console.log(courses);
+                      // Iterate over courses and create course cards
+                      courses.Courses.forEach(course => {
+                const courseDiv = document.createElement('tr');
+                courseDiv.innerHTML = `
+                                                <td>
+                                                    <input type="checkbox" />
+                                                </td>
+                                                <td>
+                                                    ${course.name}
+                                                </td>
+                                                <td>
+                                                    ${course.description}
+                                                </td>
+                                                <td>
+                                                    ${course.credits}
+                                                </td>
+                                                <td>
+                                                    ${course.teacher}
+                                                </td>
+                                                <td>
+
+                                                </td>
+                                            `;
+                document.getElementById('course_list').appendChild(courseDiv);
+            });
+        })
+        .catch(error => console.error('Error loading courses', error));
+    });
+</script>
 </body>
 </html>

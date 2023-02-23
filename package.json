@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/AAldrich16/SDEV_255_Final_Project_Group8#readme",
   "dependencies": {
+    "ejs": "^3.1.8",
     "express": "^4.18.2",
+    "mime": "^3.0.0",
     "nodemon": "^2.0.20"
   }
 }
