@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const getAllCourses = require('./controllers/getAllCourses');
+const { getAllCourses, getCourse } = require('./controllers/getCourses');
 
 
 /*
@@ -13,9 +13,11 @@ router.get('/', (req, res) => {
 router.get('/getAllCourses', (req, res) => {
   getAllCourses()
   .then( data => {
-    data = JSON.parse(data);
-    console.log(data);
     res.send(data);
+  })
+  .catch(err => {
+    console.log(err)
+    res.sendStatus(500);
   });
 });
 
@@ -26,8 +28,15 @@ router.get('/add', (req, res) => {
 
 // Course Page
 router.get('/course/:id', (req, res) => {
-  const courseID = req.params.id;
-  res.render('course.ejs', { id: courseID});
+  getCourse(req.params.id)
+  .then( data => {
+    console.log(data);
+    res.render('course.ejs', { Course: data});
+  })
+  .catch( err => {
+    console.log(err); 
+    res.sendStatus(500);
+  });
 });
 
 // Login
