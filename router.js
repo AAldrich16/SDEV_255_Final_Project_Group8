@@ -25,8 +25,9 @@ router.get('/add', (req, res) => {
 });
 
 // Courses
-router.get('/courses', (req, res) => {
-  res.render('course.ejs', { id: 'Course Id'});
+router.get('/course/:id', (req, res) => {
+  const courseID = req.params.id;
+  res.render('course.ejs', { id: courseID});
 });
 
 // Login
