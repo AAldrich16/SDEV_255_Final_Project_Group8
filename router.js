@@ -24,7 +24,7 @@ router.get('/add', (req, res) => {
   res.sendFile(`${__dirname}/views/add.html`);
 });
 
-// Courses
+// Course Page
 router.get('/course/:id', (req, res) => {
   const courseID = req.params.id;
   res.render('course.ejs', { id: courseID});
