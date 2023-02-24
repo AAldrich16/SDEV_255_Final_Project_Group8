@@ -1,13 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
-const mime = require('mime');
+const getAllCourses = require('./controllers/getAllCourses');
 const fs = require ('fs');
+const mime = require('mime');
+
 
 /*
   GET REQUESTS
 */
-// Get Course Information 
+// Home
+router.get('/', (req, res) => {
+  res.sendFile(`${__dirname}/pages/home.html`);
+});
 router.get('/getAllCourses', (req, res) => {
   getAllCourses()
   .then( data => {
@@ -17,18 +21,9 @@ router.get('/getAllCourses', (req, res) => {
   });
 });
 
-// Home
-router.get('/', (req, res) => {
-  res.sendFile(`${__dirname}/pages/home.html`);
-});
 // Add
 router.get('/add', (req, res) => {
   res.sendFile(`${__dirname}/pages/add.html`);
-});
-// Course Page
-router.get('/course/:id', (req, res) => {
-  const id = req.params.id;
-  res.render(`${__dirname}/pages/course.ejs`, {'id': id});
 });
 // Courses
 router.get('/courses', (req, res) => {
