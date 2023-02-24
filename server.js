@@ -3,7 +3,8 @@ const router = require('./router');
 const port = 3000;
 
 const app = express();
-app.use(express.static('pages')); // middleware to serve static files from /pages directory
+app.set('view engine', 'ejs');
+app.use(express.static('views')); // middleware to serve static files from /pages directory
 app.use(router);  // all routes are sent through ./router.js
 
 app.listen(3000, () => {
