@@ -8,7 +8,7 @@ const { getAllCourses, getCourse } = require('./controllers/getCourses');
 */
 // Home
 router.get('/', (req, res) => {
-  res.sendFile(`${__dirname}/views/home.html`);
+  res.render(`${__dirname}/views/home.ejs`);
 });
 router.get('/getAllCourses', (req, res) => {
   getAllCourses()
@@ -23,7 +23,11 @@ router.get('/getAllCourses', (req, res) => {
 
 // Add
 router.get('/add', (req, res) => {
-  res.sendFile(`${__dirname}/views/add.html`);
+  res.render(`${__dirname}/views/add.ejs`);
+});
+
+router.get('/create', (req, res) => {
+  res.render(`${__dirname}/views/create.ejs`);
 });
 
 // Course Page
@@ -34,7 +38,7 @@ router.get('/course/:id', (req, res) => {
     res.render('course.ejs', { Course: data});
   })
   .catch( err => {
-    console.log(err); 
+    console.log(err); -
     res.sendStatus(500);
   });
 });

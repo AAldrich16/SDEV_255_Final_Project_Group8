@@ -15,7 +15,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #83A189;
+    background: #00567c;
 }
 input[type=text], input[type=password], select, textarea{
     width: 70%;
@@ -47,7 +47,7 @@ input[type=text], input[type=password], select, textarea{
         border: none;
         cursor: pointer;
         float: right;
-        background-color: rgba(131 , 161, 137, 0.6);
+        background-color: rgba(0, 86 , 124, 0.6);
         color: #fff;
         font-weight: 800;
         width: 80%;
@@ -71,7 +71,7 @@ input[type=text], input[type=password], select, textarea{
             align-items: center;
         }
         .page_header h3 i{
-            color: #83A189;
+            color: #00567c;
             font-size: 1.5rem;
             margin-right: 0.5rem;
         }
@@ -82,7 +82,7 @@ input[type=text], input[type=password], select, textarea{
     align-content: center;
     width: 6rem;
     height: 100vh;
-    background-color: #83A189;
+    background-color: #00567c;
     color: #fff;
 }
     .navigation > *{
@@ -191,7 +191,7 @@ input[type=text], input[type=password], select, textarea{
     justify-content: center;
     width: 100%;
     height: 11%;
-    background-color: rgba(131, 161, 137, 0.2);
+    background-color: rgba(0, 86, 124, 0.2);
     border-bottom: 1px solid #a8a8a8;
 }
     .search_input{
@@ -237,3 +237,36 @@ table th {
     border-bottom: 1px solid #a8a8a8;
     color: #333;
 }
+
+
+
+.create-a-course{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+}
+    .create-a-course .input-row{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+        border-bottom: 1px solid #ddd;
+    }
+        .create-a-course .input-row:last-child{
+            border: none;
+        }
+
+        .create-a-course .input-row label{
+            margin-left: 1rem;
+        }
+        .create-a-course .input-row input, textarea, select{
+            margin-right: 0;
+            resize: none;
+        }
+        .create-a-course .input-row input[type=submit]{
+            width: 100%;
+        }
