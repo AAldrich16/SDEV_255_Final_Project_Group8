@@ -8,7 +8,7 @@ const { getAllCourses, getCourse } = require('./controllers/getCourses');
 */
 // Home
 router.get('/', (req, res) => {
-  res.render(`${__dirname}/views/home.ejs`);
+  res.render(`home.ejs`);
 });
 router.get('/getAllCourses', (req, res) => {
   getAllCourses()
@@ -23,16 +23,17 @@ router.get('/getAllCourses', (req, res) => {
 
 // Add
 router.get('/add', (req, res) => {
-  res.render(`${__dirname}/views/add.ejs`);
+  res.render('add.ejs');
 });
 
 router.get('/create', (req, res) => {
-  res.render(`${__dirname}/views/create.ejs`);
+  res.render('create.ejs');
 });
 
 // Course Page
 router.get('/course/:id', (req, res) => {
-  getCourse(req.params.id)
+  const id = req.params.id;
+  getCourse(id)
   .then( data => {
     console.log(data);
     res.render('course.ejs', { Course: data});
@@ -45,7 +46,7 @@ router.get('/course/:id', (req, res) => {
 
 // Login
 router.get('/login', (req, res) => {
-  res.sendFile(`${__dirname}/views/login.html`);
+  res.render('login.ejs');
 });
 
 // 404
