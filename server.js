@@ -14,7 +14,7 @@ const app = express();
 
 
 // Connect to database
-const dbUri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@sdev-255-final.aqsnzds.mongodb.net/?retryWrites=true&w=majority`
+const dbUri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@sdev-255-final.aqsnzds.mongodb.net/course-registration-db?retryWrites=true&w=majority`
 mongoose.set('strictQuery', true);
 mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => {
@@ -29,6 +29,7 @@ mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // Middleware
 app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public')); 
 
 

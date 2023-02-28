@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { getCourse } = require('../controllers/getCourses');
+const Course = require('../models/course');
 
 // Course Page
 router.get('/:id', (req, res) => {
   const id = req.params.id;
-  getCourse(id)
+  Course.findById(id)
   .then( data => {
     console.log(data);
     res.render('course.ejs', { Course: data});

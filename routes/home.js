@@ -1,19 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const { getAllCourses } = require('../controllers/getCourses');
+const Course = require('../models/course');
 
 router.get('/', (req, res) => {
   res.render(`home.ejs`);
 });
 
 router.get('/getAllCourses', (req, res) => {
-  getAllCourses()
+  Course.find()
   .then( data => {
     res.send(data);
   })
   .catch(err => {
-    console.log(err)
-    res.sendStatus(500);
+    console.log(err);
   });
 });
 
