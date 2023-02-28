@@ -39,12 +39,11 @@ app.use(express.static('public'));
 app.use('/', homeRouter)
 app.use('/course', courseRouter);
 app.use('/create', createRouter);
-app.use('/courses', coursesRouter);
 app.use('/add', addRouter);
 app.use('/login', loginRouter);
 
 
 // 404 page
 app.use((req, res) => {
-  res.status(404).render('404', { title: '404' });
+  res.status(404).render('404.ejs', { title: '404' });
 });
