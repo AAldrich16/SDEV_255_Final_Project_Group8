@@ -24,7 +24,7 @@ const activePage = 'home';
                   .then(courses => {
                       console.log(courses);
                       // Iterate over courses and create course cards
-                      courses.Courses.forEach(course => {
+                      courses.forEach(course => {
                           const courseDiv = document.createElement('div');
                           courseDiv.classList.add('course');
                           courseDiv.innerHTML = `
@@ -34,7 +34,7 @@ const activePage = 'home';
                                                       <img src="${course.image}" alt="courseimg"/>
                                                   </span>
                                                   <span class="info">
-                                                      <span><a href="./course/${course.id}" style="color: rgba(${course.color}, 1); font-weight: 800;">${course.name}</a></span><BR>
+                                                      <span><a href="./course/${course._id}" style="color: rgba(${course.color}, 1); font-weight: 800;">${course.name}</a></span><BR>
                                                       <span style="color: #8d8d8d;">${course.description}</span>
                                                   </span>
                                               `;
