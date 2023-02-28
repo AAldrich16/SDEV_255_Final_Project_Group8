@@ -14,12 +14,12 @@ const app = express();
 
 
 // Connect to database
-const dbUri = `mongodb+srv://${process.env.db_Username}:${process.env.db_Password}@sdev-255-final.aqsnzds.mongodb.net/?retryWrites=true&w=majority`
+const dbUri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@sdev-255-final.aqsnzds.mongodb.net/?retryWrites=true&w=majority`
 mongoose.set('strictQuery', true);
 mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => {
   console.log('Connected to database');
-  const port = process.env.port || 3000;
+  const port = process.env.PORT || 3000;
   app.listen(3000, () => {
     console.log(`App listening on port ${port}`);
   });
