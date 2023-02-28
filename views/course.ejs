@@ -6,7 +6,9 @@ const activePage = 'course';
     <body>
         <%- include('./partials/nav.ejs', { activePage: activePage }) %>
         <div class="content">
-            <p><%= Course.name %></p>
+            <div class="page_header">
+                <h3> <%= Course.name %></h3>
+            </div>
             <p><%= Course.description %></p>
         </div>
     </body>

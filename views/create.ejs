@@ -2,11 +2,7 @@
 const activePage = 'create';
 %>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
-<head>
-    <title>Home</title>
-    <link href="style.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+<%- include('./partials/head.ejs') %>
 <body>
 <%- include("./partials/nav.ejs", { activePage: activePage }) %>
 <div class="content">
@@ -14,13 +10,14 @@ const activePage = 'create';
         <h3><i class="fa-solid fa-plus"></i> Create Class </h3>
     </div>
     <div class="create-a-course">
+        <form method="POST" action="/create">
         <div class="input-row">
             <label for="cname">course name</label>
-            <input type="text" id="cname" placeholder="EX: Introduction to Python"/>
+            <input type="text" id="cname" name="name" placeholder="EX: Introduction to Python"/>
         </div>
         <div class="input-row">
             <label for="csubject">course subject</label>
-            <select>
+            <select name="subject" id="csubject">
                 <option value="" disabled selected>- Subject -</option>
                 <option value="MATH">Math</option>
                 <option value="ENG">English</option>
@@ -31,19 +28,23 @@ const activePage = 'create';
         </div>
         <div class="input-row">
             <label for="cdesc">course description</label>
-            <textarea id="cdesc" placeholder="EX: A Basic understanding of Python and algorithms "></textarea>
+            <textarea id="cdesc" name="desc" placeholder="EX: A Basic understanding of Python and algorithms "></textarea>
+        </div>
+        <div class="input-row">
+            <label for="credits">course credits</label>
+            <input type="number" id="credits" name="credits" placeholder="EX: 1" min="0" max="10"/>
         </div>
         <div class="input-row">
             <label for="cimage">course image [URL]</label>
-            <input type="text" id="cimage" placeholder="EX: http://anthonyaldrich.com/images/placeholder.jpg"/>
+            <input type="text" name="image" id="cimage" placeholder="EX: http://anthonyaldrich.com/images/placeholder.jpg"/>
         </div>
         <div class="input-row">
             <label for="ccolor">course color</label>
-            <input type="color" id="ccolor" value="#00567c"/>
+            <input type="color" name="color" id="ccolor" value="#00567c"/>
         </div>
         <div class="input-row">
             <label for="cteach">assign teacher</label>
-            <select>
+            <select name="teacher" id="cteach">
                 <option value="" disabled selected>- Teacher -</option>
                 <option value="MATH">1 - Smith, John</option>
                 <option value="ENG">2 - Wade, Roe</option>
@@ -52,7 +53,7 @@ const activePage = 'create';
         <div class="input-row">
             <input type="submit" value="create course" />
         </div>
-
+        </form>
     </div>
 </div>
 </body>

@@ -48,13 +48,13 @@ const activePage = 'add';
 <script>
     // Load courses from JSON file
     window.addEventListener('load', () => {
-              // Load courses from JSON file
-              const courses = fetch('/getAllCourses');
-                  courses.then(response => response.json())
-                  .then(courses => {
-                      console.log(courses);
-                      // Iterate over courses and create course cards
-                      courses.Courses.forEach(course => {
+        // Load courses from JSON file
+        const courses = fetch('/getAllCourses');
+        courses.then(response => response.json())
+            .then(courses => {
+                console.log(courses);
+                // Iterate over courses and create course cards
+                courses.forEach(course => {
                 const courseDiv = document.createElement('tr');
                 courseDiv.innerHTML = `
                                                 <td>
