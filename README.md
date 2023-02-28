@@ -22,8 +22,8 @@
   git clone https://github.com/AAldrich16/SDEV_255_Final_Project_Group8
   ```
 
-  **Environmental Variables**
-  Create a .env file with the following to connect to the database
+  **Environmental Variables**<br />
+  Create a .env file with the following to connect to the database<br />
   PORT is optional, as it will default to 3000 in the app
   ```
     PORT="<port>"
