@@ -23,8 +23,8 @@
   ```
 
   **Environmental Variables**
-  Create a .env file with the following to connect to the database
-  PORT is optional, as it will default to 3000 in the app
+  *Create a .env file with the following to connect to the database*
+  *PORT is optional, as it will default to 3000 in the app*
   ```
     PORT="<port>"
     DB_USERNAME="<your username>"
