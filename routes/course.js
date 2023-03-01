@@ -1,14 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const Course = require('../models/course');
+const User = require('../models/users');
 
 // Course Page
 router.get('/:id', async (req, res) => {
   const id = req.params.id;
   Course.findById(id)
-  .then( data => {
+  .then( async (data) => {
     console.log(data);
-    res.render('course.ejs', { Course: data});
+    await User.findOne({"_id": req.cookies.user}).then(function(user){
+    if(user){
+      res.render('course.ejs', { Course: data, usr: user});
+    }else{
+      res.redirect('/login');
+    }
+    });
   })
   .catch( err => {
     console.log(err); -
