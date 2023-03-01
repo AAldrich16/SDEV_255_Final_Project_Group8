@@ -30,7 +30,7 @@ router.post('/:id/save', async (req, res) => {
     const course = {
         name: req.body.name,
         subject: req.body.subject,
-        description: req.body.desc,
+        description: req.body.description,
         image: req.body.image,
         color: req.body.color,
         credits: req.body.credits
