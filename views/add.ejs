@@ -73,7 +73,8 @@ const activePage = 'add';
                                                     ${course.teacher}
                                                 </td>
                                                 <td>
-
+                                                    <a href="/editCourse/${course._id}"><i class="fa-solid fa-pen-to-square" style="color: #000"></i></a>
+                                                    <a href="/add/deleteCourse/${course._id}"><i class="fa-solid fa-trash" style="color: red"></i></a>
                                                 </td>
                                             `;
                 document.getElementById('course_list').appendChild(courseDiv);

@@ -2,18 +2,21 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
+const cookieParser = require('cookie-parser');
+
 const homeRouter = require('./routes/home');
 const courseRouter = require('./routes/course');
 const createRouter = require('./routes/create');
 const addRouter = require('./routes/add');
 const loginRouter = require('./routes/login');
-
+const registerRouter = require('./routes/register');
+const editCourseRouter = require('./routes/editCourse');
 
 // Express App
 const app = express();
 
 app.use(bodyparser.json()); //utilizes the body-parser package
-
+app.use(cookieParser());
 
 // Connect to database
 const dbUri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@sdev-255-final.aqsnzds.mongodb.net/course-registration-db?retryWrites=true&w=majority`
@@ -41,7 +44,8 @@ app.use('/course', courseRouter);
 app.use('/create', createRouter);
 app.use('/add', addRouter);
 app.use('/login', loginRouter);
-
+app.use('/register', registerRouter);
+app.use('/editCourse', editCourseRouter);
 
 // 404 page
 app.use((req, res) => {

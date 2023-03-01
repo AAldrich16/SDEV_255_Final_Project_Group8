@@ -1,28 +1,23 @@
 <html lang="en">
-    <head>
-        <title>Login</title>
-        <link href="./style.css" rel="stylesheet"/>
-    </head>
-
+    <%- include('./partials/head.ejs') %>
     <body>
-      
-        <doc class="loginform">
-          <doc class="logincontainer">
-            <form action="/login" method="POST">
-            <h1> Login </h1>
-            <label for="username">
-              Username: 
-            </label>
-            <input type="text" name="username" placeholder="Enter username"/>
-            <br/>
-            <label for="password">
-              Password: 
-            </label>
-            <input type="password" name="password" placeholder="Enter Password"/>
-            <br/>
-            <input type="submit" value="Login"/>
-          </doc>
-        </doc> 
-      </form>
+        <div class="loginform">
+            <div class="logincontainer">
+                <form method="POST" action="/login">
+                    <h1>Login</h1>
+                    <label for="username">
+                        Username:
+                    </label>
+                    <input id="username" type="text" name="username" placeholder="Enter Username"/>
+                    <br/>
+                    <label for="password">
+                        Password:
+                    </label>
+                    <input id="password" type="password" name="password" placeholder="Enter Password"/>
+                    <br/>
+                    <input type="submit" value="Login"/>
+                </form>
+            </div>
+        </div>
     </body>
 </html>

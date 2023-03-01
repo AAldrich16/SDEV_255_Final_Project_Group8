@@ -2,8 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
+  _id: {type: mongoose.Schema.Types.ObjectId, required: false},
   username: {type: String, required: true},
-  // "image": "https://static.vecteezy.com/system/resources/previews/000/201/235/original/vector-male-teacher-avatar.png",
+  password: {type: String, required: true},
+  image: {type: String, required: true},
   role: {type: String, required: true}
 }, { timestamps: true}
 );
