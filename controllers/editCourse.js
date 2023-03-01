@@ -1,18 +1,33 @@
 const Course = require('../models/course');
 
 
-function addCourse(course) {
+function createCourse(course) {
   return  new Promise( (resolve, reject) => {
-    const newCourse = new Course(course);
-    newCourse.save()
-    .then(() => {
-      resolve('New course created');
+    // Check if document already exists
+    Course.exists({ name: course.name })
+    .then( data => {
+      // If document exists, send code 204 and exit function
+      if (data !== null) {
+        res.status(204).end()
+        return;
+      }
+      else {
+        const newCourse = new Course(course);
+        newCourse.save()
+        .then(() => {
+          resolve(newCourse);
+        })
+        .catch(err => {
+          reject(err.message);
+        })
+      }
     })
     .catch(err => {
-      reject(err);
+      reject(err.message);
     });
   })
 };
+
 
 function deleteCourse(courseID) {
   return new Promise( (resolve, reject) => {
@@ -25,6 +40,7 @@ function deleteCourse(courseID) {
     });
   })
 };
+
 
 // courseID is the course's _id key
 // updates is an object like { name: "SDEV 255" }
@@ -41,7 +57,7 @@ function updateCourse(courseID, updates) {
 };
 
 module.exports = {
-  addCourse,
+  createCourse,
   deleteCourse,
   updateCourse
 };
