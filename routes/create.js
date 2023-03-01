@@ -8,7 +8,6 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  console.log(req.body);
   createCourse(req.body)
   .then(() => {
     console.log(`New course ${req.body.name} added to database`);
@@ -19,5 +18,6 @@ router.post('/', (req, res) => {
     res.status(204).end();
   });
 });
+
 
 module.exports = router;
