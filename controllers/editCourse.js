@@ -36,7 +36,7 @@ function deleteCourse(courseID) {
       resolve(`Course with id ${courseID} removed`);
     })
     .catch(err => {
-      reject(err);
+      reject(err.message);
     });
   })
 };
@@ -51,7 +51,7 @@ function updateCourse(courseID, updates) {
       resolve(`Updated document with id ${courseID}`)
     })
     .catch(err => {
-      reject(err);
+      reject(err.message);
     })
   });
 };
