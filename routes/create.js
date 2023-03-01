@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Course = require('../models/course');
+const User = require('../models/users');
+const { addCourse } = require('../controllers/editCourse');
 
 router.get('/', async (req, res) => {
   await User.findOne({"_id": req.cookies.user}).then(function(user){
@@ -14,7 +15,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', (req, res) => {
   console.log(req.body);
-  createCourse(req.body)
+  addCourse(req.body)
   .then(() => {
     console.log('new course saved to database');
     // redirect to new course page [We'd have to pull the ID unless we set the id]
