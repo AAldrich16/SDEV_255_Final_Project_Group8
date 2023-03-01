@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Course = require('../models/course');
-const { deleteCourse, updateCourse } = require('../controllers/editCourse');
 
 // Course Page
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   const id = req.params.id;
   Course.findById(id)
   .then( data => {
@@ -12,8 +11,8 @@ router.get('/:id', (req, res) => {
     res.render('course.ejs', { Course: data});
   })
   .catch( err => {
-    console.log(err.message); -
-    res.status(204).end();
+    console.log(err); -
+    res.sendStatus(500);
   });
 });
 

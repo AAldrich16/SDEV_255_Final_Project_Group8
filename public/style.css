@@ -43,7 +43,7 @@ input[type=text], input[type=password], input[type=number], select, textarea{
         background: #eee;
         box-shadow: 0 2px 5px rgb(0 0 0 / 30%);
     }
-    .logincontainer > *{
+    .logincontainer form > *{
         margin-bottom: 1rem;
     }
     input[type=submit]{
@@ -276,4 +276,11 @@ table th {
         form{
             width: 100%;
             height: 100%;
+        }
+
+        .logincontainer form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
