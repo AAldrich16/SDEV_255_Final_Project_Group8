@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
       res.redirect('/');
     }
   });
-})
+});
 
 router.post('/', async function(req , res) {
   let username = req.body.username;
@@ -27,7 +27,11 @@ router.post('/', async function(req , res) {
       throw new Error('no user');
     }
   });
-
 });
+
+// router.get('/logout', (req, res) => {
+//   res.clearCookie('user');
+//   res.redirect('/');
+// })
 
 module.exports = router;

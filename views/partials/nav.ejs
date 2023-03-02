@@ -14,5 +14,16 @@
         <div class="nav-item <%= activePage === 'create' ? 'active' : '' %>">
             <a href="/create"><i class="fa-solid fa-plus"></i></a>
         </div>
+        <div id="logout" class="nav-item <%= activePage === 'create' ? 'active' : '' %>">
+          <i class="fa-solid fa-sign-out"></i>
+      </div>
     </div>
 </div>
+<script>
+  // const logout = document.getElementById('logout');
+  // logout.addEventListener('click', () => {
+  //   fetch('/login/logout')
+  //   .then(console.log('logged out'))
+  //   .catch(err => console.log(err.message));
+  // })
+</script>
