@@ -7,9 +7,9 @@
 
 
 ## **Version**
-  *1.0.1*
+  *1.2.1*
 
-  Module 4 - 5 Teachers and Course Creation
+  Module 6 - 7 Login and COurse manipulation
 
 ## **Descirption**
   Portal for Teachers to create and delete courses.
