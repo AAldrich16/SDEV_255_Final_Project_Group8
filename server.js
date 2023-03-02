@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyparser = require('body-parser');
+// const bodyparser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 const homeRouter = require('./routes/home');
@@ -15,7 +15,7 @@ const editCourseRouter = require('./routes/editCourse');
 // Express App
 const app = express();
 
-app.use(bodyparser.json()); //utilizes the body-parser package
+// app.use(bodyparser.json()); // bodyparser doesn't seem to do anything
 app.use(cookieParser());
 
 // Connect to database
@@ -34,7 +34,7 @@ mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // Middleware
 app.set('view engine', 'ejs');
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));  // This middleware is parsing the body
 app.use(express.static('public'));
 
 
