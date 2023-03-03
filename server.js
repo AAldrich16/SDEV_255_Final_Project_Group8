@@ -11,6 +11,7 @@ const addRouter = require('./routes/add');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const editCourseRouter = require('./routes/editCourse');
+const logoutRouter = require('./routes/logout');
 const cartRouter = require('./routes/cart');
 const User = require("./models/users");
 
@@ -49,6 +50,7 @@ app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/editCourse', editCourseRouter);
 app.use('/cart', cartRouter);
+app.use('/logout', logoutRouter);
 
 // 404 page
 app.use(async (req, res) => {
