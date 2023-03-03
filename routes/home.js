@@ -22,5 +22,13 @@ router.get('/getAllCourses', (req, res) => {
     console.log(err);
   });
 });
-
+router.get('/getStudentClasses', (req, res) => {
+  Course.find({ students: { $in: req.cookies.user } })
+      .then( data => {
+        res.send(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+});
 module.exports = router;

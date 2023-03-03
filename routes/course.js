@@ -44,5 +44,15 @@ router.put('/:id', (req, res) => {
     res.status(204).end();
   })
 })
+router.get('/dropCourse/:id', async (req, res) => {
+  const id = req.params.id;
 
+  Course.updateOne({ _id: id}, {
+    $pull: { students:  req.cookies.user}
+  }).then( () => {
+    res.redirect('/');
+  }).catch(err => {
+    console.log(err);
+  })
+});
 module.exports = router;

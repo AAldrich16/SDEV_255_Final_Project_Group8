@@ -11,12 +11,19 @@
         <div class="nav-item <%= activePage === 'add' ? 'active' : '' %>">
             <a href="/add"><i class="fa-solid fa-magnifying-glass"></i></a>
         </div>
-        <div class="nav-item <%= activePage === 'create' ? 'active' : '' %>">
-            <a href="/create"><i class="fa-solid fa-plus"></i></a>
+        <% if (usr.role === 'teacher') { %>
+            <div class="nav-item <%= activePage === 'create' ? 'active' : '' %>">
+                <a href="/create"><i class="fa-solid fa-plus"></i></a>
+            </div>
+        <% }else{ %>
+        <div class="nav-item <%= activePage === 'cart' ? 'active' : '' %>">
+            <a href="/cart" ><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
+        <% } %>
         <div id="logout" class="nav-item <%= activePage === 'create' ? 'active' : '' %>">
           <i class="fa-solid fa-sign-out"></i>
       </div>
+
     </div>
 </div>
 <script>

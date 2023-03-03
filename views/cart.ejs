@@ -1,5 +1,5 @@
 <%
-const activePage = 'add';
+const activePage = 'cart';
 %>
 <html lang="en">
 <%- include('./partials/head.ejs') %>
@@ -7,20 +7,7 @@ const activePage = 'add';
 <%- include("./partials/nav.ejs", { activePage: activePage }) %>
 <div class="content">
     <div class="page_header">
-        <h3><i class="fa-solid fa-clipboard-check"></i> Course Registration</h3>
-    </div>
-    <div class="search_section">
-        <div class="search_input">
-            <input type="text" placeholder="Course Name"/>
-            <input type="text" placeholder="Course Number"/>
-            <select id="cars" name="cars">
-                <option value="" disabled selected>Semester</option>
-                <option value="Summer">Summer</option>
-                <option value="Fall">Fall</option>
-                <option value="Spring">Spring</option>
-            </select>
-            <input type="submit" value="Search"/>
-        </div>
+        <h3><i class="fa-solid fa-cart-shopping"></i> <%= usr.username %>'s Cart</h3>
     </div>
     <div class="courses_section">
         <table id="course_list">
@@ -43,20 +30,23 @@ const activePage = 'add';
                 </th>
             </tr>
         </table>
+        <form method="GET" action="/cart/purchaseCart" class="cart">
+            <input type="submit" value="Check out"/>
+        </form>
     </div>
 </div>
 <script>
     // Load courses from JSON file
     window.addEventListener('load', () => {
         // Load courses from JSON file
-        const courses = fetch('/getAllCourses');
+        const courses = fetch('/cart/getCart');
         courses.then(response => response.json())
             .then(courses => {
                 console.log(courses);
                 // Iterate over courses and create course cards
                 courses.forEach(course => {
-                const courseDiv = document.createElement('tr');
-                courseDiv.innerHTML = `
+                    const courseDiv = document.createElement('tr');
+                    courseDiv.innerHTML = `
                                                 <td>
 
                                                 </td>
@@ -73,18 +63,13 @@ const activePage = 'add';
                                                     ${course.teacher}
                                                 </td>
                                                 <td>
-                                                    <% if (usr.role === 'teacher') { %>
-                                                        <a href='/editCourse/${course._id}'><i class='fa-solid fa-pen-to-square' style='color: #000'></i></a>
-                                                        <a href='/add/deleteCourse/${course._id}'><i class='fa-solid fa-trash' style='color: red'></i></a>
-                                                    <% } else { %>
-                                                        <a href='/add/join/${course._id}'><i class="fa-solid fa-cart-plus" style="color: #000;"></i></a>
-                                                    <% } %>
+                                                    <a href='/cart/removeCourse/${course._id}'><i class='fa-solid fa-trash' style='color: red'></i></a>
                                                 </td>
                                             `;
-                document.getElementById('course_list').appendChild(courseDiv);
-            });
-        })
-        .catch(error => console.error('Error loading courses', error));
+                    document.getElementById('course_list').appendChild(courseDiv);
+                });
+            })
+            .catch(error => console.error('Error loading courses', error));
     });
 </script>
 </body>

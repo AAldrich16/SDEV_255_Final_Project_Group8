@@ -19,5 +19,15 @@ router.get('/deleteCourse/:id', async (req, res) => {
   courseHandle.deleteCourse(id);
   res.redirect('/add')
 });
+router.get('/join/:id', async (req, res) => {
+  const id = req.params.id;
+    await User.updateOne({"_id": req.cookies.user}, { $push: { 'cart': id }})
+      .then( () => {
+        res.redirect('/cart')
+      })
+      .catch(err => {
+        console.log(err);
+      })
+});
 
 module.exports = router;

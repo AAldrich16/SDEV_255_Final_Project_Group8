@@ -11,6 +11,7 @@ const addRouter = require('./routes/add');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const editCourseRouter = require('./routes/editCourse');
+const cartRouter = require('./routes/cart');
 
 // Express App
 const app = express();
@@ -46,6 +47,7 @@ app.use('/add', addRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/editCourse', editCourseRouter);
+app.use('/cart', cartRouter);
 
 // 404 page
 app.use((req, res) => {
