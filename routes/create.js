@@ -15,6 +15,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', (req, res) => {
   console.log(req.body);
+  req.body.teacher = req.cookies.user;
   addCourse(req.body)
   .then(() => {
     console.log('new course saved to database');

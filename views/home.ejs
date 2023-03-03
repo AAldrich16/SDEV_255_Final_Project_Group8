@@ -17,7 +17,12 @@ const activePage = 'home';
         <script>
             window.addEventListener('load', () => {
               // Load courses from JSON file
-              const courses = fetch('/getStudentClasses');
+                const courses =
+                <% if (usr.role === 'student') { %>
+                  fetch('/getStudentClasses');
+              <%} else { %>
+                    fetch('/getTeacherClasses');
+                <%}%>
                   courses.then(response => response.json())
                   .then(courses => {
                       console.log(courses);

@@ -31,4 +31,13 @@ router.get('/getStudentClasses', (req, res) => {
         console.log(err);
       });
 });
+router.get('/getTeacherClasses', async (req, res) => {
+  await Course.find({ teacher: req.cookies.user})
+      .then( data => {
+        res.send(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+});
 module.exports = router;

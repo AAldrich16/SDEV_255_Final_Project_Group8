@@ -1,8 +1,18 @@
-<html>
-    <%- include('./partials/head.ejs') %>
-    
-    <body>
-        <h1>404 PAGE NOT FOUND</h1>
-
-    </body>
+<%
+const activePage = 'home';
+%>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+<%- include("./partials/nav.ejs", { activePage: activePage, usr: usr }) %>
+<div class="content">
+    <div class="page_header">
+        <h1> 404 - Sorry We Count Not Find That Page </h1>
+    </div>
+    <div id="course_container">
+    </div>
+    <div class="assignments_container">
+    </div>
+</div>
+</body>
 </html>

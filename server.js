@@ -12,6 +12,7 @@ const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const editCourseRouter = require('./routes/editCourse');
 const cartRouter = require('./routes/cart');
+const User = require("./models/users");
 
 // Express App
 const app = express();
@@ -50,6 +51,12 @@ app.use('/editCourse', editCourseRouter);
 app.use('/cart', cartRouter);
 
 // 404 page
-app.use((req, res) => {
-  res.status(404).render('404.ejs', { title: '404' });
+app.use(async (req, res) => {
+    await User.findOne({"_id": req.cookies.user}).then(function(user) {
+        if (user) {
+            res.status(404).render('404.ejs', {title: '404', usr: user});
+        } else {
+            res.render('/login');
+        }
+    });
 });
