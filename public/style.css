@@ -46,7 +46,7 @@ input[type=text], input[type=password], input[type=number], select, textarea{
     .logincontainer form > *{
         margin-bottom: 1rem;
     }
-    input[type=submit]{
+    input[type=submit], button{
         border: none;
         cursor: pointer;
         float: right;

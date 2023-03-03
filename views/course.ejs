@@ -10,9 +10,13 @@ const activePage = 'course';
                 <h3> <%= Course.name %></h3>
             </div>
             <p><%= Course.description %></p>
+            <% if (usr.role === 'student') { %>
             <form method="GET" action="/course/dropCourse/<%= Course._id %>" class="cart">
                 <input type="submit" value="Drop Course" style="background: #96223f"/>
             </form>
+            <% } else { %>
+                <a href='../editCourse/<%= Course._id%>'><button style><i class='fa-solid fa-pen-to-square' style='color: #fff'></i> Edit Course</button></a>
+            <% } %>
         </div>
     </body>
 </html>
