@@ -43,9 +43,9 @@
   Go to http://localhost:3000 in a browser
   
  ## ** LOGINS **
-   **Student**
-     user: student
-     pass: student
-   **Teacher**
-     user: teacher
-     pass: teacher
+   **Student** </br>
+     user: student</br>
+     pass: student</br>
+   **Teacher**</br>
+     user: teacher</br>
+     pass: teacher</br>
