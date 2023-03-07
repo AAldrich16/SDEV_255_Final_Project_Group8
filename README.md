@@ -42,7 +42,7 @@
  ## **Run APP**
   Go to http://localhost:3000 in a browser
   
- ## ** LOGINS **
+ ## **LOGINS**
    **Student** </br>
      user: student</br>
      pass: student</br>
